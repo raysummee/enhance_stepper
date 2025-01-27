@@ -776,6 +776,7 @@ class _EnhanceStepperState extends State<EnhanceStepper>
                       HorizontalTitlePosition.bottom
               ? _buildHorizontalBottomTitle(i)
               : Row(
+                  key: GlobalObjectKey("enhance_stepper_$i"),
                   children: <Widget>[
                     SizedBox(
                       height: 72.0,
@@ -818,16 +819,17 @@ class _EnhanceStepperState extends State<EnhanceStepper>
           color: widget.backgroundColor ?? Colors.white,
           elevation: widget.elevation ?? 2.0,
           child: Container(
+            height: 65,
             margin: const EdgeInsets.symmetric(horizontal: 24.0),
-            child: Row(
+            child: ListView(
+              scrollDirection: Axis.horizontal,
               children: children,
             ),
           ),
         ),
-        Expanded(
-          child: ListView(
-            physics: widget.physics,
-            padding: widget.padding ?? const EdgeInsets.all(24.0),
+        Padding(
+          padding: widget.padding ?? const EdgeInsets.all(24.0),
+          child: Column(
             children: <Widget>[
               AnimatedSize(
                 curve: Curves.fastOutSlowIn,
