@@ -792,23 +792,21 @@ class _EnhanceStepperState extends State<EnhanceStepper>
                 ),
         ),
         if (!_isLast(i))
-          Expanded(
-            child: Column(
-              children: [
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 8.0),
-                  height: 1.0,
-                  color: Colors.grey.shade400,
-                ),
-                if (widget.type == StepperType.horizontal &&
-                    widget.horizontalTitlePosition ==
-                        HorizontalTitlePosition.bottom &&
-                    widget.horizontalLinePosition == HorizontalLinePosition.top)
-                  const SizedBox(height: 48)
-                else
-                  const SizedBox(height: 0)
-              ],
-            ),
+          Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 8.0),
+                height: 1.0,
+                color: Colors.grey.shade400,
+              ),
+              if (widget.type == StepperType.horizontal &&
+                  widget.horizontalTitlePosition ==
+                      HorizontalTitlePosition.bottom &&
+                  widget.horizontalLinePosition == HorizontalLinePosition.top)
+                const SizedBox(height: 48)
+              else
+                const SizedBox(height: 0)
+            ],
           ),
       ],
     ];
